@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  author: Emilien Mantel
+  description: S3FS for Debian 
+  company:
+  license: GPLv2
+  min_ansible_version: 1.9
+  platforms:
+  - name: Debian
+    versions:
+    - jessie
+    - stretch
+  categories:
+  - cloud
+  - cloud:ec2
+  - system
+dependencies: []
+

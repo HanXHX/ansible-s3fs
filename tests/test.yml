@@ -1,0 +1,18 @@
+---
+
+- hosts: all
+  vars:
+    s3_mounts:
+      - dir: '/mnt/s3fs'
+        bucket: 'test-ansible'
+        owner: 'www-data'
+        group: 'www-data'
+        mount_options:
+          - key: 'endpoint'
+            value: 'eu-west-1'
+          - key: 'noatime'
+          - key: 'noexec'
+          - key: 'allow_other'
+  roles:
+    - ../../
+

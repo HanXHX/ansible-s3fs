@@ -1,0 +1,7 @@
+#
+# {{ ansible_managed }}
+#
+
+{% for mount in s3_mounts %}
+{{ mount.bucket }}:{{ mount.key }}:{{ mount.secret }}
+{% endfor %}
