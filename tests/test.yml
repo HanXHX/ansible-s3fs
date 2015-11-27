@@ -7,12 +7,17 @@
         bucket: 'test-ansible'
         owner: 'www-data'
         group: 'www-data'
+        key: '{{ test_key }}'
+        secret: '{{ test_secret }}'
         mount_options:
           - key: 'endpoint'
             value: 'eu-west-1'
           - key: 'noatime'
           - key: 'noexec'
           - key: 'allow_other'
+  pre_tasks:
+    - name: include_vars | Include private variables
+      include_vars: vars/private.yml
   roles:
     - ../../
 
