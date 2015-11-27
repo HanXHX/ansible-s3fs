@@ -5,10 +5,10 @@
     that:
       - "ansible_distribution_major_version >= 8 and ansible_distribution == 'Debian'"
 
-#- name: INCLUDE | Jessie related
-#  include: jessie.yml
-#  when: ansible_distribution_release == 'jessie'
-#
+- name: INCLUDE | Jessie related
+  include: jessie.yml
+  when: ansible_distribution_release == 'jessie'
+
 - name: APT | Install s3fs and necessary packages
   apt: pkg=s3fs update_cache=yes cache_valid_time=3600 state=present
   
@@ -24,18 +24,7 @@
   file: >
     path={{ item.dir }}
     state=directory
-#    owner={{ item.owner | default('root') }}
-#    group={{ item.group | default('root') }}
   with_items: s3_mounts
-
-#
-#- name: LINEINFILE | Configure fstab
-#  lineinfile: >
-#    line="s3fs#{{ item.bucket }}\t{{ item.dir }}fuse\t_netdev,allow_other\t0\t0 # {{ item.bucket }}"
-#    dest="/etc/fstab"
-#    regexp="\b{{ item.bucket }}\b$"
-#  with_items: s3_mounts
-#  register: fstab
 
 - name: TEMPLATE | Add AWS credentials
   template: >
