@@ -1,5 +1,5 @@
-Role Name
-=========
+S3FS Ansible role for Debian
+============================
 
 [FUSE-based file system backed by Amazon S3](https://github.com/s3fs-fuse/s3fs-fuse) for Debian Jessie / Stretch.
 
@@ -11,7 +11,21 @@ None.
 Role Variables
 --------------
 
-TODO
+### s3mounts
+
+`s3_mounts` is hash list composed:
+
+- `dir`: mount point on system
+- `bucket`: bucket name in Amazon
+- `owner`: username in system who own the folder (default is root)
+- `group`: group name in system who own the folder (default is root)
+- `key`: Amazon key ID
+- `secret`: Amazon secret IS
+- `mount_options`: hash list with key and value (optional)
+
+### Jessie configuration
+
+- `s3_apt_repository`: debian repository used to installed s3fs. If setted to null, this sted is skipped). You should set null only if the respoitory is already configured.
 
 Dependencies
 ------------
@@ -36,4 +50,4 @@ GPLv2
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+- Twitter: [@hanx\_hx](https://twitter.com/hanxhx_)
